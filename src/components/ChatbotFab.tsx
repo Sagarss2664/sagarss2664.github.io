@@ -161,7 +161,7 @@ const ChatbotFab = () => {
     }
 
     return reply(
-      "I can help with Sagar Shegunashi's profile, skills, projects, certificates, resume, or contact details. For other questions, send a quick message below.",
+      "I can help with Sagar's profile, skills, projects, certificates, resume, or contact details. For other questions, send a quick message below.",
       { cta: "contact" }
     );
   };
@@ -397,8 +397,8 @@ const ChatbotFab = () => {
                           <iframe src={m.payload as string} title="Resume preview" className="w-full h-64" loading="lazy" />
                         </div>
                         <div className="mt-2 flex gap-3">
-                          <a href="/resume.pdf" download className="text-xs underline">Download PDF</a>
-                          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-xs underline">Open full</a>
+                          <a href="/#/resume.pdf" download className="text-xs underline">Download PDF</a>
+                          <a href="/#/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-xs underline">Open full</a>
                         </div>
                       </div>
                     )}
