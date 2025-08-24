@@ -66,7 +66,6 @@
 // };
 
 // export default Resume;
-
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -76,14 +75,14 @@ const Resume = () => {
   useEffect(() => {
     document.title = "Resume | Sagar Shegunashi";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "View and download the resume of Sagar Shegunashi.");
+    if (meta) {
+      meta.setAttribute("content", "View and download the resume of Sagar Shegunashi.");
+    }
 
-    // ✅ Use BASE_URL so it works on both localhost and GitHub Pages
+    // ✅ Use BASE_URL so it works in both localhost and GitHub Pages
     const pdfAbsolute = `${import.meta.env.BASE_URL}resume.pdf#toolbar=1&view=FitH`;
     setViewerUrl(pdfAbsolute);
   }, []);
-
-  const pdfPath = `${import.meta.env.BASE_URL}resume.pdf`;
 
   return (
     <main>
@@ -108,14 +107,14 @@ const Resume = () => {
 
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <a
-              href={pdfPath}
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               className="inline-flex items-center justify-center rounded-md px-4 py-2 bg-accent text-white hover:bg-accent/90 transition-colors"
               download
             >
               Download PDF
             </a>
             <a
-              href={pdfPath}
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md px-4 py-2 border border-white/10 hover:bg-white/5 transition-colors"
@@ -139,4 +138,3 @@ const Resume = () => {
 };
 
 export default Resume;
-
