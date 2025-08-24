@@ -97,7 +97,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -119,23 +119,23 @@ const App = () => (
           <Toaster />
           <Sonner />
           {/* 👇 Important: basename must match your GitHub repo name */}
-          <BrowserRouter basename="/">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/admin/login" element={<AdminLogin />} />
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute requireAdmin={true}>
-                    <AdminPanel />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <ChatbotFab />
-          </BrowserRouter>
+          <HashRouter>
+  <Routes>
+    <Route path="/" element={<Index />} />
+    <Route path="/admin/login" element={<AdminLogin />} />
+    <Route
+      path="/admin"
+      element={
+        <ProtectedRoute requireAdmin={true}>
+          <AdminPanel />
+        </ProtectedRoute>
+      }
+    />
+    <Route path="/resume" element={<Resume />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+  <ChatbotFab />
+</HashRouter>
         </TooltipProvider>
       </AuthProvider>
     </ThemeProvider>
