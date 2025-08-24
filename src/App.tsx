@@ -181,7 +181,7 @@ const App = () => (
                   </ProtectedRoute>
                 }
               />
-              <Route path="/resume" element={<Resume />} />
+              <Route path="/#/resume" element={<Resume />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <ChatbotFab />
