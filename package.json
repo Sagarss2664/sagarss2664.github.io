@@ -1,18 +1,17 @@
 {
   "name": "vite_react_shadcn_ts",
-  "homepage" : "https://sagarss2664.github.io/",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "homepage": "https://sagarss2664.github.io/",
   "type": "module",
-"scripts": {
-  "dev": "vite",
-  "build": "vite build && cp dist/index.html dist/404.html",
-  "build:dev": "vite build --mode development && cp dist/index.html dist/404.html",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp dist/index.html dist/404.html",
+    "build:dev": "vite build --mode development && cp dist/index.html dist/404.html",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -57,13 +56,10 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "emailjs": "^4.0.3",
-    "emailjs-com": "^3.2.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^10.18.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
-    "next": "^15.3.1",
-    "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
