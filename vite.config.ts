@@ -34,7 +34,7 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/Portfolio/",  // 👈 must match your repo name
+  base: "/",  // 👈 must match your repo name
   server: {
     port: 8080,
   },
