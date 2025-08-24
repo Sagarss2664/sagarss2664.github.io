@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import SocialLinks from "./SocialLinks";
 import { SocialLink } from "@/services/storageService";
+import { Link } from "react-router-dom"; // 👈 add this
 
 interface FooterProps {
   socialLinks: SocialLink[];
@@ -36,12 +37,12 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
             viewport={{ once: true }}
             className="mb-4"
           >
-            <a
-              href="/resume"
-              className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium bg-accent/90 text-white hover:bg-accent transition-colors"
-            >
-              View Resume
-            </a>
+            <Link
+    to="/resume" // 👈 this automatically becomes #/resume in HashRouter
+    className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium bg-accent/90 text-white hover:bg-accent transition-colors"
+  >
+    View Resume
+  </Link>
           </motion.div>
           
           <motion.p
