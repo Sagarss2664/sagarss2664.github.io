@@ -280,7 +280,7 @@ const removeById = (table: string, id: string) => {
 const profile: ProfileInfo = {
   name: "Sagar Subhas Shegunashi",
   title: "Computer Science and Engineering Student",
-  bio: "Aspiring Data Scientist | Full-Stack Developer | Passionate about AI/ML, Web Development, and Cognitive Computing.",
+  bio: "Aspiring Software Engineer | Full-Stack Developer | Passionate about AI/ML,and Web Development.",
   email: "sagarshegunasi2664@gmail.com",
   phone: "+91-8904646173",
   location: "Hubli-580031, Karnataka, India",
