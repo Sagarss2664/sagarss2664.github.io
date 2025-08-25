@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
             viewport={{ once: true }}
             className="mb-4"
           >
-            <Link
+             <Link
     to="/resume" // 👈 this automatically becomes #/resume in HashRouter
     className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium bg-accent/90 text-white hover:bg-accent transition-colors"
   >
