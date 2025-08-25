@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, ExternalLink } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "@/contexts/ThemeContext";
-import { Link } from "react-router-dom"; // 👈 add this
 
 interface HeroProps {
   profile: ProfileInfo;
@@ -193,9 +192,9 @@ const Hero: React.FC<HeroProps> = ({
 
           {/* View Resume CTA */}
           <motion.div variants={itemVariants} className="mb-4">
-            <Link to="/#/resume" aria-label="View Resume" className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-accent text-white hover:bg-accent/90 transition-colors hover-scale">
+            <a href="/resume" aria-label="View Resume" className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-accent text-white hover:bg-accent/90 transition-colors hover-scale">
               View Resume
-            </Link>
+            </a>
           </motion.div>
 
           <motion.div 
