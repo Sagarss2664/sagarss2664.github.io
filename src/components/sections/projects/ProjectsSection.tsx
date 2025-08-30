@@ -146,7 +146,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               {featuredProjects.map((project) => (
                 <motion.div
                   key={project.id}
-                  className="relative group overflow-hidden rounded-xl bg-black/20 backdrop-blur-lg hover-glow border border-white/10"
+                  className="project-card relative group overflow-hidden rounded-xl backdrop-blur-lg hover-glow border"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -162,8 +162,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     >
                       <div className="flex flex-col gap-4">
                         <div>
-                          <h3 className="text-3xl md:text-4xl font-bold text-gradient mb-2">{project.title}</h3>
-                          <p className="text-white/80 text-lg mb-4 line-clamp-2">{project.description}</p>
+                          <h3 className="project-title text-3xl md:text-4xl font-bold mb-2">{project.title}</h3>
+                          <p className="project-description text-lg mb-4 line-clamp-2">{project.description}</p>
                         </div>
 
                         <div className="flex gap-3 items-center justify-start">
@@ -260,7 +260,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 {featuredProjects.map((project) => (
                   <CarouselItem key={project.id} className="md:basis-1/1">
                     <div 
-                      className="relative rounded-lg overflow-hidden h-[250px]"
+                      className="project-card relative rounded-lg overflow-hidden h-[250px]"
                       onClick={() => handleProjectClick(project)}
                     >
                       <img 
@@ -269,8 +269,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent p-4 flex flex-col justify-end">
-                        <h4 className="text-xl font-bold">{project.title}</h4>
-                        <p className="text-sm text-white/70 line-clamp-2 my-1">{project.description}</p>
+                        <h4 className="project-title text-xl font-bold">{project.title}</h4>
+                        <p className="project-description text-sm line-clamp-2 my-1">{project.description}</p>
                       </div>
                     </div>
                   </CarouselItem>
@@ -312,7 +312,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               {otherProjects.map((project) => (
                 <div 
                   key={project.id}
-                  className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+                  className="project-card bg-background/30 backdrop-blur-sm border rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
                   onClick={() => handleProjectClick(project)}
                 >
                   <div className="relative h-[180px] overflow-hidden">
@@ -323,8 +323,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     />
                   </div>
                   <div className="p-4">
-                    <h4 className="text-xl font-bold mb-2">{project.title}</h4>
-                    <p className="text-sm text-gray-300 mb-4 line-clamp-2">
+                    <h4 className="project-title text-xl font-bold mb-2">{project.title}</h4>
+                    <p className="project-description text-sm mb-4 line-clamp-2">
                       {project.description}
                     </p>
                     <div className="flex justify-between items-center">
