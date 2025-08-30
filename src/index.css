@@ -868,3 +868,285 @@ button:hover::before {
 .will-change-auto {
   will-change: auto;
 }
+/* Add these styles to your index.css */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.7));
+}
+
+/* Ensure proper text contrast */
+.text-muted-foreground {
+  color: hsl(215.4 16.3% 56.9%);
+}
+
+.text-card-foreground {
+  color: hsl(222.2 84% 4.9%);
+}
+
+.dark .text-card-foreground {
+  color: hsl(210 40% 98%);
+}
+/* Add these classes to your index.css file */
+
+/* Project card text colors for light theme */
+[data-theme="light"] .project-title {
+  @apply text-[#1A1F2C];
+}
+
+[data-theme="light"] .project-description {
+  @apply text-[#1A1F2C]/80;
+}
+
+[data-theme="light"] .project-card {
+  @apply bg-[#1A1F2C]/5 border-[#1A1F2C]/10;
+}
+
+/* Ensure text visibility in both themes */
+.project-title {
+  @apply font-bold transition-colors duration-300;
+}
+
+.project-description {
+  @apply transition-colors duration-300;
+}
+
+/* Dark theme project card styles */
+[data-theme="dark"] .project-title {
+  @apply text-white;
+}
+
+[data-theme="dark"] .project-description {
+  @apply text-white/80;
+}
+
+[data-theme="dark"] .project-card {
+  @apply bg-black/20 border-white/10;
+}
+/* Badge styles for both themes */
+[data-theme="light"] .badge-outline {
+  @apply border-[#1A1F2C]/20 text-[#1A1F2C] bg-[#1A1F2C]/5;
+}
+
+[data-theme="dark"] .badge-outline {
+  @apply border-white/20 text-white bg-white/5;
+}
+
+/* Button styles for both themes */
+[data-theme="light"] .btn-outline {
+  @apply border-[#1A1F2C]/20 text-[#1A1F2C] bg-[#1A1F2C]/5 hover:bg-[#1A1F2C] hover:text-white;
+}
+
+[data-theme="dark"] .btn-outline {
+  @apply border-white/20 text-white bg-white/5 hover:bg-accent hover:text-white;
+}/* Ensure black background for project cards */
+.project-card {
+  background-color: #000000 !important;
+}
+
+/* Fix gradient overlay for black background */
+[data-theme="light"] .project-card .bg-gradient-to-b {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%) !important;
+}
+
+[data-theme="dark"] .project-card .bg-gradient-to-b {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.345) 100%) !important;
+}
+
+/* Ensure text visibility on black background */
+[data-theme="light"] .project-title {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .project-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Keep dark theme styles consistent */
+[data-theme="dark"] .project-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .project-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Tag styles for both themes */
+[data-theme="light"] .project-tag {
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="light"] .project-tag:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .project-tag {
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .project-tag:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+/* Project Modal Styles */
+[data-theme="light"] .project-modal-title {
+  color: #1A1F2C !important;
+}
+
+[data-theme="dark"] .project-modal-title {
+  color: white !important;
+}
+
+[data-theme="light"] .project-modal-description {
+  color: #1A1F2C/80 !important;
+}
+
+[data-theme="dark"] .project-modal-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="light"] .project-modal-subtitle {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .project-modal-subtitle {
+  color: white !important;
+}
+
+/* Fix for modal background in light theme */
+[data-theme="light"] .dialog-content {
+  background: #FAF1E6 !important;
+  border-color: rgba(0, 72, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .dialog-content {
+  background: rgba(0, 0, 0, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix for badge text in light theme */
+[data-theme="light"] .project-modal .badge {
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgb(237, 237, 237) !important;
+}
+
+[data-theme="light"] .project-modal .badge:hover {
+  background-color: rgb(255, 255, 255) !important;
+}
+/* Technologies heading styles */
+[data-theme="light"] .technologies-heading {
+  color: #ffffff !important;
+}
+
+/* Fix for modal content in light theme */
+[data-theme="light"] .project-modal .p-6 {
+  background: #000000 !important;
+}
+/* above one is complete nackgound */
+[data-theme="light"] .project-modal .project-description {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .project-modal .technologies-heading {
+  color: #ffffff !important;
+}
+
+/* Fix for tag icon in modal */
+[data-theme="light"] .project-modal .text-accent {
+  color: #3c2768 !important;
+}
+
+[data-theme="dark"] .technologies-heading {
+  color: white !important;
+}
+
+[data-theme="light"] .technologies-heading .text-accent {
+  color: #7E69AB !important;
+}
+
+[data-theme="dark"] .technologies-heading .text-accent {
+  color: #ff6b35 !important; /* Your accent color */
+}
+
+/* ////////////////////////////////////////////////////////////tags */
+/* Technologies tags styles for both themes */
+[data-theme="light"] .project-tag {
+  color: #ffffff !important;
+  border-color: #7E69AB !important;
+  background-color: rgba(255, 255, 255, 0.249) !important;
+}
+
+[data-theme="light"] .project-tag:hover {
+  background-color: rgba(26, 31, 44, 0.2) !important;
+}
+
+[data-theme="dark"] .project-tag {
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] .project-tag:hover {
+  background-color: rgba(244, 0, 0, 0.1) !important;
+}
+
+/* /////////////////////////////////////////////////////////////// */
+/* View Code button styles for both themes */
+[data-theme="light"] .view-code-btn {
+  color: #ffffff !important;
+  border-color: #7E69AB !important;
+  background-color: rgba(126, 105, 171, 0.1) !important;
+}
+
+[data-theme="light"] .view-code-btn:hover {
+  background-color: rgba(126, 105, 171, 0.2) !important;
+  color: #7E69AB !important;
+}
+
+[data-theme="dark"] .view-code-btn {
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .view-code-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+/* GitHub icon color in buttons */
+[data-theme="light"] .view-code-btn svg {
+  color: #7E69AB !important;
+}
+
+[data-theme="dark"] .view-code-btn svg {
+  color: white !important;
+}
