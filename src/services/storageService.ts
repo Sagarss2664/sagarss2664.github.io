@@ -137,150 +137,11 @@ const removeById = (table: string, id: string) => {
     .catch((e: any) => console.error(`[Supabase] delete ${table} error`, e));
 };
 
-// Static data (no localStorage dependency)
 
-// const profile: ProfileInfo = {
-//   name: "Sagar Subhas Shegunashi",
-//   title: "Computer Science and Engineering Student",
-//   bio: "Aspiring Data Scientist | Full-Stack Developer | Passionate about AI/ML, Web Development, and Cognitive Computing.",
-//   email: "sagarshegunasi2664@gmail.com",
-//   phone: "+91-8904646173",
-//   location: "Hubli-580031, Karnataka, India",
-//   dateOfBirth: "27 April 2004",
-//   languages: ["English", "Hindi", "Kannada"],
-//   hobbies: ["Anime", "Making Concepts", "Volunteering", "Gaming"],
-//   profileImage: "public/lovable-uploads/Sagar.jpg",
-// };
-
-// const socialLinks: SocialLink[] = [
-//   {
-//     id: "social1",
-//     platform: "LinkedIn",
-//     url: "https://www.linkedin.com/in/sagar-shegunashi-aa857526a/",
-//     icon: "Linkedin",
-//   },
-//   {
-//     id: "social2",
-//     platform: "GitHub",
-//     url: "https://github.com/Sagarss2664",
-//     icon: "Github",
-//   },
-//   {
-//     id: "social3",
-//     platform: "Gmail",
-//     url: "mailto:sagarshegunasi2664@gmail.com",
-//     icon: "Mail",
-//   },
-//   {
-//     id: "social4",
-//     platform: "LeetCode",
-//     url: "https://leetcode.com/u/sagar_s_s/",
-//     icon: "ExternalLink",
-//   },
-// ];
-
-
-// const projects: Project[] = [
-//   {
-//     id: "project1",
-//     title: "Grapho Genius – Handwriting-Based Thinking Style Recognition Tool",
-//     description:
-//       "CNN (VGGNet) model to classify thinking styles with 92.89% train and 79.01% test accuracy. Built React + Flask web app deployed on GCP; adopted by graphologists and hiring managers.",
-//     image: "/projects/handwriting.jpg",
-//     category: "AI/ML + Web Development",
-//     tags: ["Deep Learning", "TensorFlow", "Keras", "Google Vision API", "React", "Flask", "GCP"],
-//     url: "https://grapho-genius.vercel.app/",
-//     github: "https://github.com/Sagarss2664/GraphoGenius",
-//     pinned: true,
-//   },
-//   {
-//     id: "project2",
-//     title: "Apartment Management System (ApartmentPro)",
-//     description:
-//       "Full-stack platform with React, Node.js, MongoDB & React Native. Features billing, visitor & vehicle management, notifications. In production use by Hubli residents since Jan 2025.",
-//     image: "/projects/AMS0.jpg",
-//     category: "Full-Stack Development",
-//     tags: ["React", "Node.js", "Express", "MongoDB", "React Native"],
-//     url: "https://apartment-pro-afqx.vercel.app/",
-//     github: "https://github.com/Sagarss2664/Apartment.git",
-//     pinned: true,
-//   },
-//   {
-//     id: "project3",
-//     title: "Real-Time Sign Language Gesture Recognition",
-//     description:
-//       "CNN-LSTM (MobileNetV2) + DeepFace system for gesture and facial emotion recognition. Achieved 92% accuracy; published in CRM 2025 and awarded Best Paper in Robotics.",
-//     image: "/projects/RSLRS.png",
-//     category: "AI/ML",
-//     tags: ["TensorFlow", "Keras", "OpenCV", "DeepFace"],
-//     github: "https://github.com/Sagarss2664/Real-Time-Sign-Language-Gesture-Recognition-with-Facial-Expression-Integration.git",
-//     pinned: true,
-//   },
-//   {
-//     id: "project4",
-//     title: "Automatic Toll Collection System",
-//     description:
-//       "Prototype simulating toll entry/exit using stopwatch (start, pause, lap, reset).",
-//     image: "/projects/ATCS.jpg",
-//     category: "Web App",
-//     tags: ["C++", "Object Oriented Programming", "Design Patterns"],
-//     url: "https://sites.google.com/view/smart-toll-solutions",
-//     github: "https://github.com/Sagarss2664/Automatic_Toll_Collection_System_Via_GPS.git",
-//     pinned: false,
-//   },
-//  {
-//   id: "project5",
-//   title: "3D Point Cloud Segmentation",
-//   description:
-//     "Advanced segmentation system using RANSAC and DBSCAN to classify urban elements in the KITTI-360 dataset. Achieved 55% efficiency for autonomous driving applications.",
-//   image: "/projects/S3dPC.jpg", // 🔹 Add an image in /public/projects
-//   category: "AI/ML",
-//   tags: ["Python", "Open3D", "RANSAC", "DBSCAN", "Machine Learning"],
-//   github: "https://github.com/Sagarss2664/PointCloud-Segmentation", // 🔹 if you have repo
-//   pinned: false,
-// },
-// {
-//   id: "project7",
-//   title: "Synthetic Human Face Generation Using DCGAN & Fake Image Classification wit Feature Based Explination",
-//   description:
-//     "Developed a DCGAN-based model to generate realistic synthetic human faces and built a classifier to detect fake images with feature-based explanations.",
-//   image: "/projects/new.jpg", // 🔹 add image in /public/projects
-//   category: "Deep Learning",
-//   tags: ["Deep Learning", "DCGAN", "CNN", "Explainable AI", "Computer Vision"],
-//   github: null, // no repo.
-//   pinned: false,
-// },
-
-// ];
-
-
-// const certificates: Certificate[] = [
-//   {
-//     id: "cert1",
-//     title: "Best Paper Award – CRM 2025",
-//     issuer: "SR University, Warangal",
-//     date: "2025",
-//     image: "/certificates/Best_paper.png",
-//   },
-//   {
-//     id: "cert2",
-//     title: "Seva Prerak Award",
-//     issuer: "Youth for Seva",
-//     date: "2024",
-//     image: "/certificates/2024_Seva_Sambrama.png",
-//   },
-//   {
-//     id: "cert3",
-//     title: "Certificate of Presentation",
-//     issuer: "AITA - 2025",
-//     date: "2025",
-//     image: "/certificates/AITA.png",
-//   },
-// ];
 const profile: ProfileInfo = {
   name: "Sagar Subhas Shegunashi",
   title: "Computer Science and Engineering Student",
-  bio: "Aspiring Software Engineer | Full-Stack Developer | Passionate about AI/ML,and Web Development.",
+  bio: "Aspiring Data Scientist | Full-Stack Developer | Passionate about AI/ML, Web Development, and Cognitive Computing.",
   email: "sagarshegunasi2664@gmail.com",
   phone: "+91-8904646173",
   location: "Hubli-580031, Karnataka, India",
@@ -304,7 +165,7 @@ const projects: Project[] = [
     description: "CNN (VGGNet) model to classify thinking styles...",
     image: "/projects/handwriting.jpg", // ✅ correct
     category: "AI/ML + Web Development",
-    tags: ["Deep Learning", "TensorFlow", "Keras", "Google Vision API", "React", "Flask", "GCP"],
+    tags: ["Deep Learning", "TensorFlow", "Keras", "Google Vision API", "React.js", "Flask", "GCP", "Python", "JavaScript", "Node.js", "Express", "MongoDB", "Docker", "Render", "Git", "GitHub"],
     url: "https://grapho-genius.vercel.app/",
     github: "https://github.com/Sagarss2664/GraphoGenius",
     pinned: true,
@@ -315,7 +176,7 @@ const projects: Project[] = [
     description: "Full-stack platform with React, Node.js, MongoDB...",
     image: "/projects/AMS0.jpg",
     category: "Full-Stack Development",
-    tags: ["React", "Node.js", "Express", "MongoDB", "React Native"],
+    tags: ["React", "Node.js", "Express.js", "MongoDB", "React Native", "JavaScript", "TailwindCSS", "REST API", "JWT", "Docker", "Render", "MYSQL", "HTML5", "CSS3", "Git", "GitHub"],
     url: "https://apartment-pro-afqx.vercel.app/",
     github: "https://github.com/Sagarss2664/Apartment.git",
     pinned: true,
@@ -326,7 +187,7 @@ const projects: Project[] = [
     description: "CNN-LSTM (MobileNetV2) + DeepFace system...",
     image: "/projects/RSLRS.png",
     category: "AI/ML",
-    tags: ["TensorFlow", "Keras", "OpenCV", "DeepFace"],
+    tags: ["TensorFlow", "Keras", "OpenCV", "DeepFace", "Python"],
     github: "https://github.com/Sagarss2664/Real-Time-Sign-Language-Gesture-Recognition-with-Facial-Expression-Integration.git",
     pinned: true,
   },
@@ -336,7 +197,7 @@ const projects: Project[] = [
     description: "Prototype simulating toll entry/exit...",
     image: "/projects/ATCS.jpg",
     category: "Web App",
-    tags: ["C++", "OOP", "Design Patterns"],
+    tags: ["C/C++", "OOP", "Design Patterns"],
     url: "https://sites.google.com/view/smart-toll-solutions",
     github: "https://github.com/Sagarss2664/Automatic_Toll_Collection_System_Via_GPS.git",
     pinned: false,
@@ -357,7 +218,7 @@ const projects: Project[] = [
     description: "Developed a DCGAN-based model to generate faces...",
     image: "/projects/new.jpg", // ✅ must exist in /public/projects
     category: "Deep Learning",
-    tags: ["Deep Learning", "DCGAN", "CNN", "XAI", "Computer Vision"],
+    tags: ["Python", "Deep Learning", "DCGAN", "CNN", "XAI", "Computer Vision"],
     github: undefined,
     pinned: false,
   },
