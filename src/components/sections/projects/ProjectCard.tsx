@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <motion.div
-      className="relative group glass-card rounded-xl overflow-hidden hover-glow border border-white/10 bg-black/30 backdrop-blur-sm"
+      className="project-card relative group glass-card rounded-xl overflow-hidden hover-glow border border-white/10 backdrop-blur-sm bg-black"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -90,16 +90,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       {/* Content */}
-      <div className="p-4 md:p-5 bg-gradient-to-b from-black/30 to-black/60">
+      <div className="p-4 md:p-5 bg-gradient-to-b from-black/50 to-black/80"
+>
         <div className="flex justify-between items-start mb-2 md:mb-3">
-          <h3 className="text-base md:text-lg font-bold text-white truncate max-w-[80%]">{project.title}</h3>
+          <h3 className="project-title text-base md:text-lg font-bold truncate max-w-[80%]">{project.title}</h3>
           
           {isAdmin && onEdit && onDelete && (
             <EditControls onEdit={onEdit} onDelete={onDelete} />
           )}
         </div>
         
-        <p className="text-muted-foreground text-xs md:text-sm line-clamp-2 mb-3 md:mb-4 hidden sm:block">
+        <p className="project-description text-xs md:text-sm line-clamp-2 mb-3 md:mb-4 hidden sm:block">
+
           {project.description}
         </p>
         
@@ -111,7 +113,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <Badge 
                   key={index} 
                   variant="outline" 
-                  className="text-[10px] md:text-xs bg-white/5 hover:bg-white/10 transition-colors"
+                  className="project-tag text-[10px] md:text-xs bg-white/5 hover:bg-white/10 transition-colors"
                 >
                   {tag}
                 </Badge>
