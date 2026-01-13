@@ -36,36 +36,42 @@
   }
 
   :root[data-theme="light"] {
-    --background: 36 54% 95%;
-    --foreground: 0 0% 10%;
+    --background: 36 54% 95%; /* #FAF1E6 - Warm light background */
+    --foreground: 210 11% 10%; /* #0A0E14 - Enhanced contrast for better readability */
 
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 210 11% 10%; /* Dark text on white cards */
 
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 10%;
 
-    --primary: 0 0% 0%;
+    --primary: 210 11% 10%; /* Enhanced contrast dark text for primary elements */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 84 76% 94%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 84 76% 94%; /* Light secondary background */
+    --secondary-foreground: 210 11% 10%;
 
-    --muted: 252 70% 97%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 252 70% 97%; /* Very light muted background */
+    --muted-foreground: 220 9% 25%; /* #2D3748 - Enhanced contrast for better readability */
 
-    --accent: 260 35% 50%;
+    --accent: 260 35% 35%; /* #5A4B7C - Darker purple for better contrast */
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 85% 60%;
+    --destructive: 0 85% 40%; /* Better contrast red */
     --destructive-foreground: 210 40% 98%;
 
-    --border: 38 36% 80%;
-    --input: 38 36% 80%;
-    --ring: 0 0% 80%;
+    --border: 220 13% 65%; /* #9CA3AF - More defined borders */
+    --input: 220 13% 88%; /* #E5E7EB - Cleaner input backgrounds */
+    --ring: 260 35% 35%; /* Focus ring matches accent */
     --radius: 0.5rem;
     
-    --light-dark: 252 19% 13%;
+    --light-dark: 252 19% 8%; /* #0F1419 - Darker elements in light theme for better contrast */
+    
+    /* Enhanced text hierarchy colors for better contrast */
+    --text-primary: 210 11% 8%; /* #0A0E14 - Primary headings with enhanced contrast */
+    --text-secondary: 220 9% 15%; /* #1A202C - Secondary text with better contrast */
+    --text-muted: 220 9% 25%; /* #2D3748 - Muted text with WCAG AA compliance */
+    --text-subtle: 220 9% 40%; /* #4A5568 - Subtle text with adequate contrast */
   }
   
   :root {
@@ -113,13 +119,13 @@
 @layer base {
   * {
     @apply border-border selection:bg-accent/20 selection:text-white;
-    /* Ultra-smooth transitions for all elements */
-    transition: transform 0.4s var(--ultra-smooth), 
-                opacity 0.4s var(--ultra-smooth), 
-                box-shadow 0.4s var(--ultra-smooth),
-                background-color 0.4s var(--ultra-smooth),
-                border-color 0.4s var(--ultra-smooth),
-                color 0.4s var(--ultra-smooth);
+    /* Optimized transitions - reduced from all elements */
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+                background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+                border-color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+                color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
   
   body {
@@ -130,6 +136,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* Improved line height for readability */
+    line-height: 1.6;
   }
 
   html {
@@ -138,28 +146,203 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Consistent heading hierarchy with better contrast */
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
-    transition: all 0.6s var(--butter-smooth);
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-foreground;
+    line-height: 1.2;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-semibold;
-    transition: all 0.6s var(--butter-smooth);
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground;
+    line-height: 1.3;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   h3 {
-    @apply text-2xl md:text-3xl lg:text-4xl font-medium;
-    transition: all 0.6s var(--butter-smooth);
+    @apply text-2xl md:text-3xl lg:text-4xl font-medium text-foreground;
+    line-height: 1.4;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   p {
-    @apply text-sm md:text-base leading-relaxed;
-    transition: all 0.4s var(--smooth-ease-out);
+    @apply text-sm md:text-base leading-relaxed text-foreground;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  /* Improved focus indicators for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+  }
+
+  /* Professional link styling with proper contrast */
+  a {
+    @apply text-accent hover:text-accent/80 transition-colors duration-200;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  a:focus-visible {
+    @apply ring-2 ring-accent ring-offset-2 ring-offset-background rounded-sm;
+  }
+
+  /* Improved button base styles */
+  button {
+    @apply transition-all duration-200 ease-out;
+    cursor: pointer;
+  }
+
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Enhanced heading styles with better letter spacing */
+  h1 {
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    letter-spacing: -0.015em;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-medium text-foreground;
+    line-height: 1.5;
+  }
+
+  /* Improved paragraph readability */
+  p {
+    line-height: 1.7;
   }
 }
 
 @layer utilities {
+  /* Enhanced text readability utilities with improved contrast */
+  .text-readable-primary {
+    color: hsl(var(--text-primary, var(--foreground)));
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  .text-readable-secondary {
+    color: hsl(var(--text-secondary, var(--foreground)));
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  
+  .text-readable-body {
+    color: hsl(var(--foreground));
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+  
+  .text-readable-muted {
+    color: hsl(var(--text-muted, var(--muted-foreground)));
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  
+  .text-readable-subtle {
+    color: hsl(var(--text-subtle, var(--muted-foreground)));
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Light theme specific text improvements for better contrast */
+  [data-theme="light"] .text-readable-primary {
+    color: hsl(210 11% 8%); /* Enhanced contrast for headings */
+  }
+  
+  [data-theme="light"] .text-readable-secondary {
+    color: hsl(220 9% 15%); /* Better contrast for secondary text */
+  }
+  
+  [data-theme="light"] .text-readable-muted {
+    color: hsl(220 9% 25%); /* WCAG AA compliant muted text */
+  }
+  
+  [data-theme="light"] .text-readable-subtle {
+    color: hsl(220 9% 35%); /* Improved subtle text contrast */
+  }
+
+  /* Professional heading styles with better contrast */
+  .heading-primary {
+    @apply text-readable-primary text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading-secondary {
+    @apply text-readable-primary text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .heading-tertiary {
+    @apply text-readable-secondary text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight;
+  }
+  
+  .heading-quaternary {
+    @apply text-readable-secondary text-xl md:text-2xl font-medium tracking-tight;
+  }
+
+  /* Enhanced card styling with better readability */
+  .card-professional {
+    @apply glass-card p-6 rounded-lg transition-all duration-300;
+    background: hsl(var(--card) / 0.95);
+    border: 1px solid hsl(var(--border) / 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  [data-theme="light"] .card-professional {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  [data-theme="dark"] .card-professional {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Professional button styles */
+  .btn-professional {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+    @apply shadow-sm hover:shadow-md;
+    min-height: 44px; /* Accessibility: minimum touch target */
+  }
+  
+  .btn-outline-professional {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply border-2 border-accent text-accent bg-transparent;
+    @apply hover:bg-accent hover:text-accent-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+    min-height: 44px;
+  }
+
+  /* Enhanced badge styling */
+  .badge-professional {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium transition-all duration-200;
+    @apply bg-accent/10 text-accent border border-accent/20;
+    @apply hover:bg-accent/20 hover:border-accent/30;
+  }
+  
+  [data-theme="light"] .badge-professional {
+    @apply bg-accent/8 text-accent border-accent/15;
+    @apply hover:bg-accent/15 hover:border-accent/25;
+  }
+
   .scrollbar-none {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -169,59 +352,112 @@
     display: none;
   }
 
+  /* Professional glass card styling with proper theme support */
   .glass-card {
-    @apply backdrop-blur-md border shadow-[0_4px_20px_rgba(0,0,0,0.3)];
-    transition: all 0.6s var(--butter-smooth);
+    @apply backdrop-blur-md border shadow-lg transition-all duration-300 ease-out;
+    border-radius: 12px;
   }
   
   .glass-card:hover {
-    @apply border-white/20;
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   }
   
   [data-theme="dark"] .glass-card {
     @apply bg-card/40 border-white/10;
+    background: rgba(255, 255, 255, 0.05);
   }
   
   [data-theme="light"] .glass-card {
-    @apply bg-light-dark border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.3)];
+    @apply bg-white/90 border-gray-200/60 shadow-md;
+    backdrop-filter: blur(10px);
   }
 
+  [data-theme="light"] .glass-card:hover {
+    @apply border-gray-300/70;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Improved text gradients with better contrast */
   .text-gradient {
-    @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
-    transition: all 0.6s var(--butter-smooth);
+    @apply bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent;
   }
   
   .text-gradient-accent {
     @apply bg-gradient-to-br from-accent via-accent/80 to-accent/60 bg-clip-text text-transparent;
-    transition: all 0.6s var(--butter-smooth);
   }
 
-  /* Ultra-smooth hover effects */
+  /* Consistent hover effects */
   .hover-scale {
-    transition: transform 0.5s var(--butter-smooth), 
-                box-shadow 0.5s var(--butter-smooth);
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
   
   .hover-scale:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   }
 
   .hover-glow {
-    transition: all 0.6s var(--butter-smooth);
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
   
   .hover-glow:hover {
-    box-shadow: 0 0 30px rgba(255,255,255,0.4);
-    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(var(--accent), 0.3);
+    transform: translateY(-2px);
   }
 
-  /* Ultra-smooth floating animation */
+  /* Optimized floating animation */
   .float {
-    animation: ultraFloat 8s var(--butter-smooth) infinite;
+    animation: float 6s ease-in-out infinite;
   }
+
+  /* Professional badge styling */
+  .badge-professional {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+    @apply bg-accent/10 text-accent border border-accent/20;
+    transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .badge-professional:hover {
+    @apply bg-accent/20 border-accent/30;
+    transform: translateY(-1px);
+  }
+
+  /* Consistent section spacing */
+  section {
+    @apply py-16 md:py-20;
+    scroll-margin-top: 80px;
+  }
+
+  /* Responsive grid with consistent gaps */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  }
+
+  /* Professional button styling */
+  .btn-professional {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium;
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+    @apply focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+    transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .btn-professional:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(var(--accent), 0.25);
+  }
+
+  /* Improved mobile responsiveness */
+  .mobile-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  .mobile-margin {
+    @apply my-6 md:my-8 lg:my-12;
+  }
+
 
   /* Enhanced shine effect */
   .shine {
@@ -457,7 +693,7 @@
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
     transition: gap 0.4s var(--smooth-ease-out);
   }
-}
+
 
 .story-link * {
   @apply relative inline-block;
@@ -562,79 +798,28 @@ button:hover::before {
   transform: translateX(100%);
 }
 
-/* Ultra-smooth animations keyframes */
-@keyframes ultraFloat {
+/* Optimized animations keyframes */
+@keyframes float {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-8px) rotate(1deg);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-15px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-8px) rotate(-1deg);
+    transform: translateY(-8px);
   }
 }
 
-@keyframes ultraShine {
-  0% {
-    transform: rotate(30deg) translate(-50%, -50%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(30deg) translate(150%, 150%);
-    opacity: 0;
-  }
-}
-
-@keyframes ultraFadeInUp {
+@keyframes fadeInUp {
   from { 
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(20px);
   }
   to { 
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
-@keyframes ultraBadgeGlow {
-  0% {
-    left: -100%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    left: 200%;
-    opacity: 0;
-  }
-}
-
-@keyframes ultraNameFlash {
-  0% {
-    left: -100%;
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    left: 200%;
-    opacity: 0;
-  }
-}
-
-@keyframes ultraGradientShift {
+@keyframes gradientShift {
   0%, 100% {
     background-position: 0% 50%;
   }
@@ -643,23 +828,18 @@ button:hover::before {
   }
 }
 
-@keyframes ultraScrollLeft {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* Professional stagger animation */
+.stagger-card {
+  @apply opacity-0;
+  animation: fadeInUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
-@keyframes ultraScrollRight {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
+.stagger-card:nth-child(1) { animation-delay: 0.1s; }
+.stagger-card:nth-child(2) { animation-delay: 0.2s; }
+.stagger-card:nth-child(3) { animation-delay: 0.3s; }
+.stagger-card:nth-child(4) { animation-delay: 0.4s; }
+.stagger-card:nth-child(5) { animation-delay: 0.5s; }
+.stagger-card:nth-child(6) { animation-delay: 0.6s; }
 
 /* Mobile responsive optimizations */
 @media (max-width: 640px) {
@@ -668,7 +848,7 @@ button:hover::before {
   }
   
   section {
-    @apply py-10;
+    @apply py-12;
     scroll-margin-top: 60px;
   }
   
@@ -676,50 +856,36 @@ button:hover::before {
     @apply grid-cols-1 gap-4;
   }
   
-  .mobile-full-width {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  .mobile-stack {
-    @apply flex flex-col;
-  }
-  
   .glass-card {
     @apply mx-2;
   }
   
-  button[role="tab"] {
-    @apply px-3 py-2 text-xs;
+  h1 {
+    @apply text-3xl md:text-4xl;
   }
   
-  .student-text {
-    @apply text-sm;
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
   }
   
   /* Reduce animation intensity on mobile */
-  .card-hover-3d:hover {
-    transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02) translateY(-5px);
-  }
-  
   .hover-scale:hover {
-    transform: scale(1.02) translateY(-1px);
+    transform: scale(1.01) translateY(-1px);
   }
 }
 
 /* Tablet adjustments */
 @media (min-width: 641px) and (max-width: 1024px) {
   section {
-    @apply py-14;
-  }
-  
-  .glass-card {
-    @apply mx-1;
+    @apply py-16;
   }
 }
 
-/* Prefers reduced motion */
+/* Proper reduced motion implementation */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -731,11 +897,100 @@ button:hover::before {
   }
   
   .float,
-  .shine::after,
-  .badge-glow::before,
-  .name-animation::after {
+  .stagger-card {
     animation: none !important;
   }
+  
+  .hover-scale:hover,
+  .hover-glow:hover {
+    transform: none !important;
+  }
+}
+
+/* Enhanced theme-specific improvements */
+[data-theme="light"] {
+  /* Ensure proper text contrast in light theme */
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2, 
+[data-theme="light"] h3 {
+  @apply text-foreground;
+}
+
+[data-theme="light"] p {
+  @apply text-foreground/90;
+}
+
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Professional project card styling with proper theme support */
+.project-card {
+  @apply glass-card hover-scale transition-all duration-300;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="dark"] .project-card {
+  @apply bg-card/60 border-white/10;
+}
+
+[data-theme="light"] .project-card {
+  @apply bg-white/95 border-gray-200/60;
+}
+
+/* Project card content overlay */
+.project-card .content-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent;
+  z-index: 1;
+}
+
+[data-theme="light"] .project-card .content-overlay {
+  @apply from-black/70 via-black/30 to-transparent;
+}
+
+/* Project card text styling */
+.project-card .project-title {
+  @apply text-white font-bold relative z-10;
+}
+
+.project-card .project-description {
+  @apply text-white/90 relative z-10;
+}
+
+.project-card .project-tag {
+  @apply relative z-10 border border-white/30 bg-white/10 text-white;
+  backdrop-filter: blur(4px);
+}
+
+.project-card .project-tag:hover {
+  @apply bg-white/20 border-white/40;
+}
+
+.project-title {
+  @apply text-foreground font-bold;
+}
+
+.project-description {
+  @apply text-muted-foreground;
+}
+
+.project-tag {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  @apply bg-accent/10 text-accent border border-accent/20;
+  transition: all 0.2s ease-out;
+}
+
+.project-tag:hover {
+  @apply bg-accent/20 border-accent/30;
 }
 
 /* Enhanced dark mode handling */
@@ -745,215 +1000,7 @@ button:hover::before {
   }
 }
 
-/* Enhanced GitHub icon visibility */
-.github-icon {
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="dark"] .github-icon {
-  @apply text-white opacity-90 hover:opacity-100;
-}
-  
-[data-theme="light"] .github-icon {
-  @apply text-white opacity-100 hover:opacity-100;
-}
-
-/* Enhanced light theme elements */
-[data-theme="light"] .project-card h1,
-[data-theme="light"] .project-card h2,
-[data-theme="light"] .project-card h3,
-[data-theme="light"] .certificate-card h1,
-[data-theme="light"] .certificate-card h2,
-[data-theme="light"] .certificate-card h3,
-[data-theme="light"] .task-card h1,
-[data-theme="light"] .task-card h2,
-[data-theme="light"] .task-card h3,
-[data-theme="light"] .glass-card h1,
-[data-theme="light"] .glass-card h2,
-[data-theme="light"] .glass-card h3 {
-  @apply text-white;
-  transition: color 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] .project-card p,
-[data-theme="light"] .certificate-card p,
-[data-theme="light"] .task-card p,
-[data-theme="light"] .glass-card p {
-  @apply text-gray-200;
-  transition: color 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] .badge {
-  @apply bg-[#7E69AB] text-white;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] button[role="tab"] {
-  @apply text-gray-200 bg-[#1A1F2C]/90 hover:bg-[#1A1F2C];
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] button[role="tab"][aria-selected="true"] {
-  @apply bg-[#7E69AB] text-white shadow-md;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] .glass-card {
-  @apply bg-[#1A1F2C]/90 shadow-md border border-white/10;
-  transition: all 0.5s var(--butter-smooth);
-}
-
-[data-theme="light"] .project-card,
-[data-theme="light"] .certificate-card,
-[data-theme="light"] .task-card {
-  @apply bg-[#1A1F2C]/90 text-white;
-  transition: all 0.5s var(--butter-smooth);
-}
-
-[data-theme="light"] .skill-badge,
-[data-theme="light"] .interest-badge {
-  @apply bg-[#7E69AB] text-white;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] .tab-switcher-container {
-  @apply bg-[#1A1F2C]/90 border-white/10;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] .contact-form,
-[data-theme="light"] .contact-info {
-  @apply bg-[#1A1F2C]/90 border border-white/10 text-white;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] .social-links a {
-  @apply bg-[#1A1F2C]/90 text-white border-white/10;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] input,
-[data-theme="light"] textarea {
-  @apply text-[#1A1F2C] border-[#7E69AB]/50;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-[data-theme="light"] label {
-  @apply text-[#1A1F2C];
-  transition: color 0.4s var(--butter-smooth);
-}
-
-/* Enhanced scrolling for all elements */
-* {
-  scroll-behavior: smooth !important;
-}
-
-/* Enhanced sticky elements */
-.sticky {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  transition: all 0.4s var(--butter-smooth);
-}
-
-/* Performance optimizations */
-.will-change-transform {
-  will-change: transform;
-}
-
-.will-change-opacity {
-  will-change: opacity;
-}
-
-.will-change-auto {
-  will-change: auto;
-}
-/* Add these styles to your index.css */
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.drop-shadow-glow {
-  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.7));
-}
-
-/* Ensure proper text contrast */
-.text-muted-foreground {
-  color: hsl(215.4 16.3% 56.9%);
-}
-
-.text-card-foreground {
-  color: hsl(222.2 84% 4.9%);
-}
-
-.dark .text-card-foreground {
-  color: hsl(210 40% 98%);
-}
-/* Add these classes to your index.css file */
-
-/* Project card text colors for light theme */
-[data-theme="light"] .project-title {
-  @apply text-[#1A1F2C];
-}
-
-[data-theme="light"] .project-description {
-  @apply text-[#1A1F2C]/80;
-}
-
-[data-theme="light"] .project-card {
-  @apply bg-[#1A1F2C]/5 border-[#1A1F2C]/10;
-}
-
-/* Ensure text visibility in both themes */
-.project-title {
-  @apply font-bold transition-colors duration-300;
-}
-
-.project-description {
-  @apply transition-colors duration-300;
-}
-
-/* Dark theme project card styles */
-[data-theme="dark"] .project-title {
-  @apply text-white;
-}
-
-[data-theme="dark"] .project-description {
-  @apply text-white/80;
-}
-
-[data-theme="dark"] .project-card {
-  @apply bg-black/20 border-white/10;
-}
-/* Badge styles for both themes */
-[data-theme="light"] .badge-outline {
-  @apply border-[#1A1F2C]/20 text-[#1A1F2C] bg-[#1A1F2C]/5;
-}
-
-[data-theme="dark"] .badge-outline {
-  @apply border-white/20 text-white bg-white/5;
-}
+/* Clean, professional styling - no redundant rules */
 
 /* Button styles for both themes */
 [data-theme="light"] .btn-outline {
@@ -962,191 +1009,49 @@ button:hover::before {
 
 [data-theme="dark"] .btn-outline {
   @apply border-white/20 text-white bg-white/5 hover:bg-accent hover:text-white;
-}/* Ensure black background for project cards */
-.project-card {
-  background-color: #000000 !important;
 }
 
-/* Fix gradient overlay for black background */
-[data-theme="light"] .project-card .bg-gradient-to-b {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%) !important;
+
+/* Professional badge and tag styling */
+.badge-professional {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  @apply bg-accent/10 text-accent border border-accent/20;
+  transition: all 0.2s ease-out;
 }
 
-[data-theme="dark"] .project-card .bg-gradient-to-b {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.345) 100%) !important;
+.badge-professional:hover {
+  @apply bg-accent/20 border-accent/30;
 }
 
-/* Ensure text visibility on black background */
-[data-theme="light"] .project-title {
-  color: #ffffff !important;
+[data-theme="light"] .badge-professional {
+  @apply bg-accent/15 text-accent border-accent/25;
 }
 
-[data-theme="light"] .project-description {
-  color: rgba(255, 255, 255, 0.8) !important;
+/* Professional button styling */
+.btn-professional {
+  @apply inline-flex items-center px-4 py-2 rounded-lg font-medium;
+  @apply bg-accent text-accent-foreground hover:bg-accent/90;
+  @apply transition-all duration-200 ease-out;
+  @apply focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
 }
 
-/* Keep dark theme styles consistent */
-[data-theme="dark"] .project-title {
-  color: #ffffff !important;
+.btn-outline {
+  @apply inline-flex items-center px-4 py-2 rounded-lg font-medium;
+  @apply border border-accent/30 text-accent bg-transparent;
+  @apply hover:bg-accent hover:text-accent-foreground;
+  @apply transition-all duration-200 ease-out;
 }
 
-[data-theme="dark"] .project-description {
-  color: rgba(255, 255, 255, 0.8) !important;
+/* Clean modal and dialog styling */
+.dialog-content {
+  @apply bg-background border-border;
 }
 
-/* Tag styles for both themes */
-[data-theme="light"] .project-tag {
-  color: white !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-[data-theme="light"] .project-tag:hover {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-[data-theme="dark"] .project-tag {
-  color: white !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  background-color: rgba(255, 255, 255, 0.05) !important;
-}
-
-[data-theme="dark"] .project-tag:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-}
-/* ///////////////////////////////////////////////////////////////////////////////////////// */
-/* Project Modal Styles */
-[data-theme="light"] .project-modal-title {
-  color: #1A1F2C !important;
-}
-
-[data-theme="dark"] .project-modal-title {
-  color: white !important;
-}
-
-[data-theme="light"] .project-modal-description {
-  color: #1A1F2C/80 !important;
-}
-
-[data-theme="dark"] .project-modal-description {
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-
-[data-theme="light"] .project-modal-subtitle {
-  color: #ffffff !important;
-}
-
-[data-theme="dark"] .project-modal-subtitle {
-  color: white !important;
-}
-
-/* Fix for modal background in light theme */
 [data-theme="light"] .dialog-content {
-  background: #FAF1E6 !important;
-  border-color: rgba(0, 72, 255, 0.1) !important;
+  @apply bg-background border-border shadow-lg;
 }
 
 [data-theme="dark"] .dialog-content {
-  background: rgba(0, 0, 0, 0.95) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  @apply bg-card border-border;
 }
-
-/* Fix for badge text in light theme */
-[data-theme="light"] .project-modal .badge {
-  color: white !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  background-color: rgb(237, 237, 237) !important;
-}
-
-[data-theme="light"] .project-modal .badge:hover {
-  background-color: rgb(255, 255, 255) !important;
-}
-/* Technologies heading styles */
-[data-theme="light"] .technologies-heading {
-  color: #ffffff !important;
-}
-
-/* Fix for modal content in light theme */
-[data-theme="light"] .project-modal .p-6 {
-  background: #000000 !important;
-}
-/* above one is complete nackgound */
-[data-theme="light"] .project-modal .project-description {
-  color: #ffffff !important;
-}
-
-[data-theme="light"] .project-modal .technologies-heading {
-  color: #ffffff !important;
-}
-
-/* Fix for tag icon in modal */
-[data-theme="light"] .project-modal .text-accent {
-  color: #3c2768 !important;
-}
-
-[data-theme="dark"] .technologies-heading {
-  color: white !important;
-}
-
-[data-theme="light"] .technologies-heading .text-accent {
-  color: #7E69AB !important;
-}
-
-[data-theme="dark"] .technologies-heading .text-accent {
-  color: #ff6b35 !important; /* Your accent color */
-}
-
-/* ////////////////////////////////////////////////////////////tags */
-/* Technologies tags styles for both themes */
-[data-theme="light"] .project-tag {
-  color: #ffffff !important;
-  border-color: #7E69AB !important;
-  background-color: rgba(255, 255, 255, 0.249) !important;
-}
-
-[data-theme="light"] .project-tag:hover {
-  background-color: rgba(26, 31, 44, 0.2) !important;
-}
-
-[data-theme="dark"] .project-tag {
-  color: white !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  background-color: rgba(255, 0, 0, 0.05) !important;
-}
-
-[data-theme="dark"] .project-tag:hover {
-  background-color: rgba(244, 0, 0, 0.1) !important;
-}
-
-/* /////////////////////////////////////////////////////////////// */
-/* View Code button styles for both themes */
-[data-theme="light"] .view-code-btn {
-  color: #ffffff !important;
-  border-color: #7E69AB !important;
-  background-color: rgba(126, 105, 171, 0.1) !important;
-}
-
-[data-theme="light"] .view-code-btn:hover {
-  background-color: rgba(126, 105, 171, 0.2) !important;
-  color: #7E69AB !important;
-}
-
-[data-theme="dark"] .view-code-btn {
-  color: white !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  background-color: rgba(255, 255, 255, 0.05) !important;
-}
-
-[data-theme="dark"] .view-code-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  color: white !important;
-}
-
-/* GitHub icon color in buttons */
-[data-theme="light"] .view-code-btn svg {
-  color: #7E69AB !important;
-}
-
-[data-theme="dark"] .view-code-btn svg {
-  color: white !important;
 }
